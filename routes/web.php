@@ -13,4 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
 
+Route::get('/series',[\App\Http\Controllers\SeriController::class,"index"])->name("seri.index");
+Route::get('/series/criar',[\App\Http\Controllers\SeriController::class,"create"])->name("seri.create");
+Route::post('/series/criar',[\App\Http\Controllers\SeriController::class,"store"])->name("seri.store");
