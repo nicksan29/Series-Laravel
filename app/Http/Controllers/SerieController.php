@@ -20,7 +20,6 @@ class SerieController extends Controller
 
     public function store(Request $request){
         dd($request->all());
-        dd(explode("&",$request->getContent()));
         $request->validate([
             "name" => "string|required",
             "seasons" => "string|required",
