@@ -1,12 +1,10 @@
 <?php
 
-namespace app\Http\Controllers;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Seri;
-use illuminate\Http\Request;
+use Illuminate\Http\Request;
 
-Class SeriController extends Controller
+class SerieController extends Controller
 {
     public function index(){
         $seri= Seri::all();
@@ -21,7 +19,7 @@ Class SeriController extends Controller
     }
 
     public function store(Request $request){
-        dd($request->query());
+        dd($request->all());
         dd(explode("&",$request->getContent()));
         $request->validate([
             "name" => "string|required",
@@ -36,6 +34,4 @@ Class SeriController extends Controller
         ]);
         return redirect(route("seri.index"))->withSuccess("série salva");
     }
-
-    
 }

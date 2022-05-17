@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\SerieController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/series',[\App\Http\Controllers\SeriController::class,"index"])->name("seri.index");
-Route::get('/series/criar',[\App\Http\Controllers\SeriController::class,"create"])->name("seri.create");
-Route::post('/series/criar',[\App\Http\Controllers\SeriController::class,"store"])->name("seri.store");
+Route::get('/series',[SerieController::class,"index"])->name("seri.index");
+Route::get('/series/criar',[SerieController::class,"create"])->name("seri.create");
+Route::post('/series/criar',[SerieController::class,"store"])->name("seri.store");
