@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 
 class SerieController extends Controller
 {
-    public function index(){
+    public function index() {
         $seri= Seri::all();
 
         return view("seri-index",[
@@ -16,19 +16,18 @@ class SerieController extends Controller
         ]);
     }
 
-    public function create(){
+    public function create() {
         return view("seri-create");
     }
 
-    public function store(Request $request){
+    public function store(Request $request) {
         if ($request->hasFile('image') && $request->file('image')->isValid()){
-            $image=$request->image;
-            $ext=$image->extension();
-            $imagename=$image->getClientOriginalName() . strtotime("now") . "." . $ext;
-///           $image->storeAs("series", $imagename);
-            Storage::disk("public")->put("series/" . $imagename, $image);
+            $image = $request->image;
+            $ext = $image->extension();
+            $imagename = str_replace(' ', '_',pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME)) . strtotime("now") . "." . $ext;
+            $image->storeAs("series", $imagename);
         }
-        
+
         $seri= Seri::create([
             "name" => $request->name,
             "seasons" => $request->seasons,
