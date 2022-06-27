@@ -14,5 +14,6 @@ Class Seri extends Model
         'seasons',
         'gen',
         'image',
+        'bio',
     ];
 }

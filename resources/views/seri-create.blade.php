@@ -7,6 +7,7 @@
     <input type="number" name="seasons" placeholder="Temporadas">
     <input type="text" name="gen" placeholder="Genero">
     <input type="file" name="image" placeholder="URL da imagem">
+    <textarea name="bio" id="" cols="30" rows="10" placeholder="Bio"></textarea>
     <button type="submit">Enviar</button>
 </form>
 @include("parts.footer")

@@ -19,6 +19,7 @@ class CreateSerisTable extends Migration
             $table->integer("seasons");
             $table->string("gen");
             $table->string("image");
+            $table->string("bio");
             $table->timestamps();
         });
     }
